@@ -1,8 +1,11 @@
 package com.ficticiusclean.ficticiusclean.controller.model.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class VeiculoModelResponse implements Comparable {
 
     private Long id;
@@ -11,7 +14,7 @@ public class VeiculoModelResponse implements Comparable {
     private String modelo;
     private LocalDate dataFabricação;
     private BigDecimal consumoCombustivelCidade;
-    private BigDecimal ConsumoCombustivelRodovia;
+    private BigDecimal consumoCombustivelRodovia;
     private BigDecimal precoTotal;
 
     public VeiculoModelResponse(Long id, String nome, String marca, String modelo, LocalDate dataFabricação,
@@ -22,7 +25,7 @@ public class VeiculoModelResponse implements Comparable {
         this.modelo = modelo;
         this.dataFabricação = dataFabricação;
         this.consumoCombustivelCidade = consumoCombustivelCidade;
-        this.ConsumoCombustivelRodovia = consumoCombustivelRodovia;
+        this.consumoCombustivelRodovia = consumoCombustivelRodovia;
         this.precoTotal = precoTotal;
     }
 
@@ -77,11 +80,11 @@ public class VeiculoModelResponse implements Comparable {
     }
 
     public BigDecimal getConsumoCombustivelRodovia() {
-        return ConsumoCombustivelRodovia;
+        return consumoCombustivelRodovia;
     }
 
     public void setConsumoCombustivelRodovia(BigDecimal consumoCombustivelRodovia) {
-        ConsumoCombustivelRodovia = consumoCombustivelRodovia;
+        this.consumoCombustivelRodovia = consumoCombustivelRodovia;
     }
 
     public BigDecimal getPrecoTotal() {

@@ -36,6 +36,7 @@ public class VeiculoService {
             VeiculoModelResponse response = new VeiculoModelResponse();
             response.setNome(veiculo.getNome());
             response.setMarca(veiculo.getMarca());
+            response.setModelo(veiculo.getModelo());
             response.setDataFabricação(veiculo.getDataFabricação());
             response.setConsumoCombustivelCidade(veiculo.getConsumoCombustivelCidade());
             response.setConsumoCombustivelRodovia(veiculo.getConsumoCombustivelRodovia());

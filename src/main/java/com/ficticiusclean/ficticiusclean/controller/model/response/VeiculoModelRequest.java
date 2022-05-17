@@ -11,7 +11,7 @@ public class VeiculoModelRequest {
     private String modelo;
     private LocalDate dataFabricação;
     private BigDecimal consumoCombustivelCidade;
-    private BigDecimal ConsumoCombustivelRodovia;
+    private BigDecimal consumoCombustivelRodovia;
 
     public VeiculoModelRequest(Long id, String nome, String marca, String modelo, LocalDate dataFabricação,
                                BigDecimal consumoCombustivelCidade, BigDecimal consumoCombustivelRodovia) {
@@ -21,7 +21,7 @@ public class VeiculoModelRequest {
         this.modelo = modelo;
         this.dataFabricação = dataFabricação;
         this.consumoCombustivelCidade = consumoCombustivelCidade;
-        ConsumoCombustivelRodovia = consumoCombustivelRodovia;
+        this.consumoCombustivelRodovia = consumoCombustivelRodovia;
     }
 
     public VeiculoModelRequest(){}
@@ -75,10 +75,10 @@ public class VeiculoModelRequest {
     }
 
     public BigDecimal getConsumoCombustivelRodovia() {
-        return ConsumoCombustivelRodovia;
+        return consumoCombustivelRodovia;
     }
 
     public void setConsumoCombustivelRodovia(BigDecimal consumoCombustivelRodovia) {
-        ConsumoCombustivelRodovia = consumoCombustivelRodovia;
+        this.consumoCombustivelRodovia = consumoCombustivelRodovia;
     }
 }

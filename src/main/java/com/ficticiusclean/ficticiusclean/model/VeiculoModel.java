@@ -3,15 +3,13 @@ package com.ficticiusclean.ficticiusclean.model;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "veiculo")
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class VeiculoModel implements Serializable {
 
@@ -23,7 +21,7 @@ public class VeiculoModel implements Serializable {
     private String modelo;
     private LocalDate dataFabricação;
     private BigDecimal consumoCombustivelCidade;
-    private BigDecimal ConsumoCombustivelRodovia;
+    private BigDecimal consumoCombustivelRodovia;
 
     public VeiculoModel(Long id, String nome, String marca, String modelo,
                         LocalDate dataFabricação, BigDecimal consumoCombustivelCidade,
@@ -34,7 +32,7 @@ public class VeiculoModel implements Serializable {
         this.modelo = modelo;
         this.dataFabricação = dataFabricação;
         this.consumoCombustivelCidade = consumoCombustivelCidade;
-        ConsumoCombustivelRodovia = consumoCombustivelRodovia;
+        this.consumoCombustivelRodovia = consumoCombustivelRodovia;
     }
 
     public VeiculoModel(){}
@@ -88,10 +86,10 @@ public class VeiculoModel implements Serializable {
     }
 
     public BigDecimal getConsumoCombustivelRodovia() {
-        return ConsumoCombustivelRodovia;
+        return consumoCombustivelRodovia;
     }
 
     public void setConsumoCombustivelRodovia(BigDecimal consumoCombustivelRodovia) {
-        ConsumoCombustivelRodovia = consumoCombustivelRodovia;
+        this.consumoCombustivelRodovia = consumoCombustivelRodovia;
     }
 }

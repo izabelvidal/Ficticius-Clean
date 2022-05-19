@@ -19,17 +19,17 @@ public class VeiculoService {
     @Autowired
     private ConsumoService service;
 
-    public VeiculoModel insert(VeiculoModel obj){
+    public VeiculoModel insert(VeiculoModel obj) {
         return repository.save(obj);
     }
 
-    public List<VeiculoModelResponse> somaTotal(Double preco, Double distanciaCidade, Double distanciaEstrada){
+    public List<VeiculoModelResponse> somaTotal(Double preco, Double distanciaCidade, Double distanciaEstrada) {
         List<VeiculoModel> veiculos = repository.findAll();
 
         List<VeiculoModelResponse> calculaVeiculos = veiculos.stream().map(veiculo -> {
             Double consumoEstradaLitros = service.totalLitrosUsados(distanciaEstrada, veiculo.getConsumoCombustivelRodovia());
             Double consumoCidadeLitros = service.totalLitrosUsados(distanciaCidade, veiculo.getConsumoCombustivelCidade());
-            Double consumoLitrosTotal = consumoCidadeLitros+consumoEstradaLitros;
+            Double consumoLitrosTotal = consumoCidadeLitros + consumoEstradaLitros;
             Double precoTotal = service.valorTotalAPagar(preco, consumoLitrosTotal);
 
             VeiculoModelResponse response = new VeiculoModelResponse();
@@ -48,7 +48,7 @@ public class VeiculoService {
         return calculaVeiculos;
     }
 
-    private String formataDouble(Double preco){
+    private String formataDouble(Double preco) {
         String resultado = String.format("%.2f", preco);
         return resultado;
     }

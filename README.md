@@ -11,7 +11,7 @@
 * O banco de dados usado foi o H2, o mesmo já se encontra no ponto de rodar em memória
 
 
-## ☕ Usando <Ficticius-Clean>
+## ☕ Usando <Ficticius_Clean>
 
 O <Ficticius-Clean> foi pensando para rodar sem complicações em sua máquina, para rodar basta apenas observar se uma máquina 
 esta com a versão 11 do Java instalada, faça e clone e seja feliz :) 

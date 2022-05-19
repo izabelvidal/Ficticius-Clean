@@ -1,6 +1,5 @@
 package com.ficticiusclean.ficticiusclean.controller.model.response;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class VeiculoModelRequest {
@@ -10,11 +9,11 @@ public class VeiculoModelRequest {
     private String marca;
     private String modelo;
     private LocalDate dataFabricação;
-    private BigDecimal consumoCombustivelCidade;
-    private BigDecimal consumoCombustivelRodovia;
+    private Double consumoCombustivelCidade;
+    private Double consumoCombustivelRodovia;
 
     public VeiculoModelRequest(Long id, String nome, String marca, String modelo, LocalDate dataFabricação,
-                               BigDecimal consumoCombustivelCidade, BigDecimal consumoCombustivelRodovia) {
+                               Double consumoCombustivelCidade, Double consumoCombustivelRodovia) {
         this.id = id;
         this.nome = nome;
         this.marca = marca;
@@ -66,19 +65,19 @@ public class VeiculoModelRequest {
         this.dataFabricação = dataFabricação;
     }
 
-    public BigDecimal getConsumoCombustivelCidade() {
+    public Double getConsumoCombustivelCidade() {
         return consumoCombustivelCidade;
     }
 
-    public void setConsumoCombustivelCidade(BigDecimal consumoCombustivelCidade) {
+    public void setConsumoCombustivelCidade(Double consumoCombustivelCidade) {
         this.consumoCombustivelCidade = consumoCombustivelCidade;
     }
 
-    public BigDecimal getConsumoCombustivelRodovia() {
+    public Double getConsumoCombustivelRodovia() {
         return consumoCombustivelRodovia;
     }
 
-    public void setConsumoCombustivelRodovia(BigDecimal consumoCombustivelRodovia) {
+    public void setConsumoCombustivelRodovia(Double consumoCombustivelRodovia) {
         this.consumoCombustivelRodovia = consumoCombustivelRodovia;
     }
 }

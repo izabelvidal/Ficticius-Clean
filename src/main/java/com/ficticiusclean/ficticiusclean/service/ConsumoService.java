@@ -2,17 +2,14 @@ package com.ficticiusclean.ficticiusclean.service;
 
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 @Service
 public class ConsumoService {
 
-    public BigDecimal valorTotalAPagar(BigDecimal gasolinaPreco, BigDecimal consumoLitrosGasolina) {
-        return gasolinaPreco.multiply(consumoLitrosGasolina);
+    public  Double valorTotalAPagar( Double gasolinaPreco, Double consumoLitrosGasolina) {
+        return gasolinaPreco*consumoLitrosGasolina;
     }
 
-    public BigDecimal totalLitrosUsados(BigDecimal distancia, BigDecimal mediaConsumida) {
-        return distancia.divide(mediaConsumida, RoundingMode.HALF_UP);
+    public Double totalLitrosUsados( Double distancia,  Double mediaConsumida) {
+        return distancia/mediaConsumida;
     }
 }

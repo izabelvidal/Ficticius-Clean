@@ -6,7 +6,6 @@ import com.ficticiusclean.ficticiusclean.repository.VeiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,23 +23,22 @@ public class VeiculoService {
         return repository.save(obj);
     }
 
-    public List<VeiculoModelResponse> somaTotal(BigDecimal preco, BigDecimal distanciaCidade, BigDecimal distanciaEstrada){
+    public List<VeiculoModelResponse> somaTotal(Double preco, Double distanciaCidade, Double distanciaEstrada){
         List<VeiculoModel> veiculos = repository.findAll();
 
         List<VeiculoModelResponse> calculaVeiculos = veiculos.stream().map(veiculo -> {
-            BigDecimal consumoEstradaLitros = service.totalLitrosUsados(distanciaEstrada, veiculo.getConsumoCombustivelRodovia());
-            BigDecimal consumoCidadeLitros = service.totalLitrosUsados(distanciaCidade, veiculo.getConsumoCombustivelCidade());
-            BigDecimal consumoLitrosTotal = consumoCidadeLitros.add(consumoEstradaLitros);
-            BigDecimal precoTotal = service.valorTotalAPagar(preco, consumoLitrosTotal);
+            Double consumoEstradaLitros = service.totalLitrosUsados(distanciaEstrada, veiculo.getConsumoCombustivelRodovia());
+            Double consumoCidadeLitros = service.totalLitrosUsados(distanciaCidade, veiculo.getConsumoCombustivelCidade());
+            Double consumoLitrosTotal = consumoCidadeLitros+consumoEstradaLitros;
+            Double precoTotal = service.valorTotalAPagar(preco, consumoLitrosTotal);
 
             VeiculoModelResponse response = new VeiculoModelResponse();
             response.setNome(veiculo.getNome());
             response.setMarca(veiculo.getMarca());
             response.setModelo(veiculo.getModelo());
             response.setDataFabricação(veiculo.getDataFabricação());
-            response.setConsumoCombustivelCidade(veiculo.getConsumoCombustivelCidade());
-            response.setConsumoCombustivelRodovia(veiculo.getConsumoCombustivelRodovia());
-            response.setPrecoTotal(precoTotal);
+            response.setCombustivelTotal(formataDouble(consumoLitrosTotal));
+            response.setPrecoTotal(formataDouble(precoTotal));
 
             return response;
         }).collect(Collectors.toList());
@@ -48,5 +46,10 @@ public class VeiculoService {
         Collections.sort(calculaVeiculos);
 
         return calculaVeiculos;
+    }
+
+    private String formataDouble(Double preco){
+        String resultado = String.format("%.2f", preco);
+        return resultado;
     }
 }

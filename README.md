@@ -1,6 +1,6 @@
 # Ficticius-Clean
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Flogodownload.org%2Ftotvs-logo%2F&psig=AOvVaw078MeteWSjmgl12lvhMoFQ&ust=1653055327993000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMj_jI_d6_cCFQAAAAAdAAAAABAD" alt="Logo TOTVS">
+<img src="https://www.totvs.com/wp-content/uploads/2019/09/logo.png" alt="Logo TOTVS">
 
 > Projeto criado em desafio da TOTVS
 
@@ -11,7 +11,7 @@
 * O banco de dados usado foi o H2, o mesmo já se encontra no ponto de rodar em memória
 
 
-## ☕ Usando <desafio_inter>
+## ☕ Usando <Ficticius-Clean>
 
 O <Ficticius-Clean> foi pensando para rodar sem complicações em sua máquina, para rodar basta apenas observar se uma máquina 
 esta com a versão 11 do Java instalada, faça e clone e seja feliz :) 
